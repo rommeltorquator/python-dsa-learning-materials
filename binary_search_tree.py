@@ -9,6 +9,30 @@ class BinarySearchTree:
     def __init__(self):
         self.root = None
 
+### **`insert(value)` Method**
+# The method should perform the following steps:
+# 1. Create a new `Node` using the given `value`.
+# 2. Check if the Binary Search Tree is empty (`self.root is None`):
+#    * If **yes**, set `self.root` to the new node and return `True`.
+# 3. If the tree is **not empty**:
+#    * Set a temporary variable `temp` to `self.root`.
+#    * Traverse the tree until the new node is inserted.
+# 4. During traversal:
+#    * If `value == temp.value`:
+#      * Return `False` (duplicate values are not allowed).
+#    * If `value < temp.value`:
+#      * If `temp.left` is `None`:
+#        * Set `temp.left` to the new node.
+#        * Return `True`.
+#      * Otherwise:
+#        * Move `temp` to `temp.left` and continue.
+#    * If `value > temp.value`:
+#      * If `temp.right` is `None`:
+#        * Set `temp.right` to the new node.
+#        * Return `True`.
+#      * Otherwise:
+#        * Move `temp` to `temp.right` and continue.
+
     def insert(self, value):
         new_node = Node(value)
         if self.root is None:
@@ -28,6 +52,8 @@ class BinarySearchTree:
                     temp.right = new_node
                     return True
                 temp = temp.right
+
+# Implement the contains method for the BinarySearchTree class that checks if a node with a given value exists in the binary search tree.
 
     def contains(self, value):
         temp = self.root
